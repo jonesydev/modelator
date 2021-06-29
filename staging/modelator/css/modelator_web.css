@@ -1,0 +1,184 @@
+body {
+  font-family: "Courier New", monospace;
+}
+
+header {
+  background-color:black;
+  padding-top: 4px;  
+}
+
+p {
+  text-align: left;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+/*ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li:hover ul {
+  display: inline-block;
+}
+
+li {  
+  float: left;  
+}
+
+li a, .dropbtn {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: green;
+}
+
+.dropbtn {  
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+li.dropdown {  
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #333;
+}
+
+.dropdown-content a:hover {
+  background-color: #111;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content ul {
+  display: block;
+}
+*/
+
+.flex-container {
+  margin-top: 12.5%;
+  margin-left: 1.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;  
+}
+
+.flex-data {
+  flex: 65%;
+}
+
+.flex-charts {
+  flex: 35%;
+}
+
+.sticky-header {  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+#frequency_table {
+  border-collapse: colapse;
+  width: 100%;
+}
+
+#frequency_table td, #frequency_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#frequency_table th {
+  background-color: #d3d3d3;
+}
+
+#frequency_table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#frequency_table tr:hover {
+  background-color: #ddd;
+}
+
+#frequency_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+.column_chart {
+  float: right;
+  width: 30%;
+  padding: 10px;
+}
+
+.column_controls {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.bar {
+  fill: green;
+}
+
+.box {
+  fill: green;
+}
