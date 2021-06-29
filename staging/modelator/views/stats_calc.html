@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Statistics Calculator</title> 
+  <link rel="stylesheet" href="../css/modelator_web.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <script type="text/javascript">var max = 12;</script> 
+</head>
+<body onload="init_page()">
+  <div class="sticky-header" id="app_header">  
+    <header style="background-color:black">  
+      <h1>&nbsp;<a href="../index.html"><span style="color:white; vertical-align:middle">Model</span><span style="color:green; vertical-align:middle"><i>ator</i></span></a></h1>      
+      <div class="menu">
+        <ul>
+          <li class="link">
+            <a href="../index.html">Home</a>
+          </li>
+          <li>
+            <!-- Tools Drop-down -->
+            <a href="tools.html">Tools</a>            
+              <ul>
+                <li>
+                  <!-- Calculators Drop-down -->
+                  <a href="calculators.html" class="dropbtn">Calculators</a>
+                  <ul>
+                    <li class="link">
+                      <a href="stats_calc.html">Statistics</a>
+                    </li>                 
+                  </ul>                                  
+                </li>                
+              </ul>            
+          </li>
+          <li class="link"><a href="about.html">About</a></li>
+          <li class="link"><a href="help.html">Help</a></li>
+        </ul>
+      </div>
+    </header>
+    
+    <h2>&nbsp;<i>Statistics Calcul</i><span style="color:green">ator</span></h2>
+    <hr>
+  </div>     
+   
+  <div class="flex-container">    
+    <div class="flex-data">
+      <div class="row">
+        <div class="validator" id="validator_message"></div>
+        <br>      
+        <label for="data_value_input"><strong>Data Value:</strong></label>&nbsp;        
+         
+        <input type="number" id="data_value_input" name="data_value_input" oninput="limit_number_length(this, 12)" step=".0001">&nbsp;              
+      
+        <button type="button" 
+                id="enter_data_value" 
+                name="enter_data_value" 
+                onclick="add_data_to_array(document.getElementById('data_value_input').value);">
+                Enter
+        </button>
+        
+        <button type="button"
+                id="clear_set"
+                name="clear_set"
+                onclick="clear_current_set();">
+                Clear Set
+        </button>
+        
+        <button type="button"
+                id="clear_all"
+                name="clear_all"
+                onclick="clear_all();">
+                Clear All
+        </button>
+        
+        <button type="button"
+                id="backspace"
+                name="backspace"
+                onclick="backspace_data_array();">
+                Backspace
+        </button>
+        <!--  
+        <button type="button" 
+                id="add_dataset" 
+                name="add_dataset" 
+                onclick="add_dataset();">
+                Add Dataset
+        </button>
+        -->
+        
+        <button type="button" 
+                id="calculate" 
+                name="calculate" 
+                onclick="calculate();">
+                Calculate
+        </button>        
+      
+        <br><br>        
+        
+        <label id="dataset"><strong>Current Data Set:</strong></label>
+        
+        <div id="datasets_input">
+          <!-- Display added datasets' input here. -->
+        </div>        
+      </div>      
+      
+      <br><br>
+           
+      <div class="row">
+        <div class="column">
+          <label id="minimum"><strong>Minimum:</strong></label>      
+        </div>
+        <div class="column">
+          <label id="maximum"><strong>Maximum:</strong></label>          
+        </div>
+        <div class="column">
+          <label id="mean"><strong>Mean:</strong></label>          
+        </div>        
+      </div>
+          
+      <div class="row">
+        <div class="column">
+          <label id="count"><strong>Count:</strong></label>
+        </div>
+        <div class="column">
+          <label id="sum"><strong>Sum:</strong></label>        
+        </div>  
+        <div class="column">
+          <label id="standard_deviation"><strong>Std Deviation:</strong></label>        
+        </div>        
+      </div>
+      
+       <div class="row">      
+        <div class="column">
+          <label id="range"><strong>Range:</strong></label>
+        </div>
+        <div class="column">
+          <label id="variance"><strong>Variance:</strong></label>
+        </div>
+        <div class="column">
+          <label id="mode"><strong>Mode:</strong></label>          
+        </div>
+      </div>
+      
+      <br>
+      
+      <div class="row">
+        <div class="column">
+          <label id="percentile_25"><strong>1<sup>st</sup> Quartile:</strong></label>         
+        </div>
+        <div class="column">
+          <label id="median"><strong>Median:</strong></label>          
+        </div>        
+        <div class="column">
+          <label id="percentile_75"><strong>3<sup>rd</sup> Quartile:</strong></label>          
+        </div>
+        <div class="column">
+          <label id="iqr"><strong>IQR:</strong></label>         
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="column">
+          <label id="percentile_10"><strong>10<sup>th</sup> Percentile:</strong></label>          
+        </div>
+        <div class="column">
+          <label id="percentile_20"><strong>20<sup>th</sup> Percentile:</strong></label>         
+        </div>
+        <div class="column">
+          <label id="percentile_30"><strong>30<sup>th</sup> Percentile:</strong></label>          
+        </div>
+        <div class="column">
+          <label id="percentile_40"><strong>40<sup>th</sup> Percentile:</strong></label>          
+        </div> 
+      </div>
+      
+      <div class="row">      
+        <div class="column">
+          <label id="percentile_60"><strong>60<sup>th</sup> Percentile:</strong></label>          
+        </div>
+        <div class="column">
+          <label id="percentile_70"><strong>70<sup>th</sup> Percentile:</strong></label>          
+        </div> 
+        <div class="column">
+          <label id="percentile_80"><strong>80<sup>th</sup> Percentile:</strong></label>         
+        </div>
+        <div class="column">
+          <label id="percentile_90"><strong>90<sup>th</sup> Percentile:</strong></label>         
+        </div>      
+      </div>      
+      
+      <br><br><br>
+      
+      <div>
+        <table id="frequency_table">
+          <thead>
+            <tr>
+              <th id="th_data">Data Value</th>
+              <th id="th_freq">Frequency</th>
+              <th id="th_rel_freq">Relative Frequency</th>
+              <th id="th_rel_freq">R. %</th>
+              <th id="th_cum_rel_freq">Cumulative Relative Frequency</th>
+              <th id="th_rel_freq">C.R. %</th>
+              <th id="th_zscore">Z-Score</th>
+            </tr>
+          </thead>       
+        </table>
+      </div>
+      <div id="datasets_output">
+        <!-- Display added dataset output here. -->
+      </div>
+    </div>
+    
+    <div class="flex-charts">
+      <div id="div_bar">
+        <svg width="600" height="500" id="svg_bar"></svg>
+      </div>
+      <div id="div_box">
+        <svg width="600" height="250" id="svg_box"></svg>
+      </div>
+    </div>
+  </div>    
+  
+  <div id="hidden_inputs">
+    <input type="hidden" id="data_values" name="data_values">
+  </div>
+  <div>
+    <script type="text/javascript" src="../calc_modules/stats_calc.js"></script>
+    <script type="text/javascript" src="../modules/d3/d3.min.js"></script>    
+  </div>  
+</body>
+</html>
