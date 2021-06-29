@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelator</title> 
+  <link rel="stylesheet" href="css/modelator_web.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <script type="text/javascript" src="modules/d3.min.js"></script>
+</head>
+<body onload="init_page()">
+  <div class="sticky-header" id="app_header">  
+    <header>  
+      <h1>&nbsp;<a href="index.html"><span style="color:white; vertical-align:middle">Model</span><span style="color:green; vertical-align:middle"><i>ator</i></span></a></h1>      
+      <div class="menu">
+        <ul>
+          <li class="link">
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <!-- Tools Drop-down -->
+            <a href="views/tools.html">Tools</a>            
+              <ul>
+                <li>
+                  <!-- Calculators Drop-down -->
+                  <a href="views/calculators.html" class="dropbtn">Calculators</a>
+                  <ul>
+                    <li class="link">
+                      <a href="views/stats_calc.html">Statistics</a>
+                    </li>                 
+                  </ul>                                  
+                </li>                
+              </ul>            
+          </li>
+          <li class="link"><a href="views/about.html">About</a></li>
+          <li class="link"><a href="views/help.html">Help</a></li>
+        </ul>
+      </div>
+    </header>
+    
+    <h2>&nbsp;<i>Modeling</i> <span style="color:green">and</span> <i>Simulation Tools</i></h2>
+    <hr>
+  </div>  
+  
+  <div class="flex-container">
+    <p>
+      Our most humble welcome to what is to become a full-fledged modeling and simulation environment: a modeler, a simulator, a Modelator.
+    </p>
+    <p>
+      Admittedly it will take some time to get to where we want to be but we feel we're off to a great start with our first offering of a statistics 
+      calculator.
+    </p>
+    <p>
+      While there may not be anything too exciting about a series of calculators, what's different here is how they're implemented and what's to come.
+    </p>
+    <p>
+      It's an entirely stable User Interface (UI) written in common HTML, CSS, and JavaScript.
+      The backend is written in C++ and Node.js, to help ensure the most efficient processing. 
+      These calculator components are actually just smaller parts of the components that will ultimately make up Modelator.
+    </p>
+  </div>
+  
+</body>
+</html>
